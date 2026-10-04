@@ -1,0 +1,435 @@
+<title>Travel and Tourism Management System</title>
+
+<style>
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        background-color: #f5f5f5;
+        color: #333;
+    }
+
+    /* ================= LOGIN PAGE ================= */
+
+    #loginPage {
+        min-height: 100vh;
+
+        background-image:
+            linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+            url("https://images.unsplash.com/photo-1500534623283-312aade485b7");
+
+        background-size: cover;
+        background-position: center;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .login-container {
+        width: 380px;
+        background: rgba(255, 255, 255, 0.96);
+        padding: 40px;
+        border-radius: 15px;
+
+        box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    }
+
+    .login-container h1 {
+        text-align: center;
+        color: #12343b;
+        margin-bottom: 10px;
+    }
+
+    .login-container p {
+        text-align: center;
+        color: #666;
+        margin-bottom: 25px;
+    }
+
+    .login-container input {
+        width: 100%;
+        padding: 13px;
+        margin: 10px 0;
+
+        border: 1px solid #ccc;
+        border-radius: 6px;
+
+        font-size: 15px;
+    }
+
+    .login-container input:focus {
+        outline: none;
+        border-color: #ff7a00;
+    }
+
+    .forgot {
+        display: block;
+        text-align: right;
+
+        color: #12343b;
+        text-decoration: none;
+
+        font-size: 14px;
+        margin-top: 5px;
+    }
+
+    .login-btn {
+        width: 100%;
+
+        padding: 13px;
+        margin-top: 18px;
+
+        background-color: #ff7a00;
+        color: white;
+
+        border: none;
+        border-radius: 6px;
+
+        font-size: 16px;
+        font-weight: bold;
+
+        cursor: pointer;
+    }
+
+    .login-btn:hover {
+        background-color: #e65f00;
+    }
+
+    .register {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .register a {
+        color: #ff7a00;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+
+    /* ================= MAIN WEBSITE ================= */
+
+    #mainWebsite {
+        display: none;
+    }
+
+
+    /* Header */
+
+    header {
+        background-color: #12343b;
+        color: white;
+
+        padding: 20px;
+        text-align: center;
+    }
+
+    header h1 {
+        margin-bottom: 15px;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+
+        margin: 0 12px;
+
+        font-weight: bold;
+    }
+
+    nav a:hover {
+        color: #ffcc00;
+    }
+
+
+    /* Home */
+
+    .home {
+        height: 500px;
+
+        background-image:
+            url("https://images.unsplash.com/photo-1500534623283-312aade485b7");
+
+        background-size: cover;
+        background-position: center;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        text-align: center;
+
+        color: white;
+    }
+
+    .home-content {
+        background: rgba(0,0,0,0.5);
+
+        padding: 40px;
+        border-radius: 10px;
+    }
+
+    .home h2 {
+        font-size: 45px;
+        margin-bottom: 15px;
+    }
+
+    .home p {
+        font-size: 20px;
+        margin-bottom: 25px;
+    }
+
+    .btn {
+        background-color: #ff7a00;
+
+        color: white;
+
+        padding: 12px 25px;
+
+        text-decoration: none;
+
+        border-radius: 5px;
+
+        display: inline-block;
+    }
+
+    .btn:hover {
+        background-color: #e65f00;
+    }
+
+
+    /* Common Section */
+
+    section {
+        padding: 50px 8%;
+        text-align: center;
+    }
+
+    section h2 {
+        font-size: 32px;
+
+        color: #12343b;
+
+        margin-bottom: 20px;
+    }
+
+    section p {
+        line-height: 1.7;
+    }
+
+
+    /* Destinations */
+
+    .cards {
+        display: flex;
+
+        justify-content: center;
+
+        gap: 25px;
+
+        flex-wrap: wrap;
+
+        margin-top: 30px;
+    }
+
+    .card {
+        width: 250px;
+
+        background-color: white;
+
+        border-radius: 10px;
+
+        overflow: hidden;
+
+        box-shadow: 0 4px 10px #bbb;
+    }
+
+    .card img {
+        width: 100%;
+        height: 170px;
+
+        object-fit: cover;
+    }
+
+    .card h3 {
+        color: #12343b;
+
+        margin: 15px;
+    }
+
+    .card p {
+        padding: 0 15px 20px;
+    }
+
+
+    /* Packages */
+
+    .package {
+        width: 280px;
+
+        background-color: white;
+
+        padding: 25px;
+
+        border-radius: 10px;
+
+        box-shadow: 0 4px 10px #bbb;
+    }
+
+    .package h3 {
+        color: #12343b;
+
+        margin-bottom: 15px;
+    }
+
+    .package p {
+        margin: 10px;
+    }
+
+    .price {
+        font-size: 22px;
+
+        font-weight: bold;
+
+        color: #ff7a00;
+
+        margin: 15px;
+    }
+
+
+    /* About */
+
+    .about {
+        background-color: white;
+    }
+
+    .about-content {
+        max-width: 800px;
+
+        margin: auto;
+    }
+
+
+    /* Contact */
+
+    .contact-form {
+        max-width: 500px;
+
+        margin: auto;
+
+        background-color: white;
+
+        padding: 30px;
+
+        border-radius: 10px;
+
+        box-shadow: 0 4px 10px #bbb;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select {
+
+        width: 100%;
+
+        padding: 12px;
+
+        margin: 10px 0;
+
+        border: 1px solid #ccc;
+
+        border-radius: 5px;
+    }
+
+    .contact-form button {
+
+        width: 100%;
+
+        padding: 12px;
+
+        background-color: #12343b;
+
+        color: white;
+
+        border: none;
+
+        border-radius: 5px;
+
+        cursor: pointer;
+
+        font-size: 16px;
+    }
+
+    .contact-form button:hover {
+        background-color: #1d5963;
+    }
+
+
+    /* Logout */
+
+    .logout-btn {
+
+        background-color: #ff4d4d;
+
+        color: white;
+
+        border: none;
+
+        padding: 8px 15px;
+
+        border-radius: 5px;
+
+        cursor: pointer;
+
+        font-weight: bold;
+    }
+
+    .logout-btn:hover {
+        background-color: #cc0000;
+    }
+
+
+    /* Footer */
+
+    footer {
+        background-color: #12343b;
+
+        color: white;
+
+        text-align: center;
+
+        padding: 20px;
+    }
+
+
+    /* Mobile */
+
+    @media (max-width: 768px) {
+
+        nav a {
+            display: inline-block;
+
+            margin: 8px;
+        }
+
+        .home h2 {
+            font-size: 32px;
+        }
+
+        section {
+            padding: 40px 5%;
+        }
+
+        .login-container {
+            width: 90%;
+            padding: 30px 25px;
+        }
+    }
+
+</style>
